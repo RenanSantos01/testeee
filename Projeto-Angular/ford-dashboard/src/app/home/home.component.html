@@ -1,6 +1,11 @@
-<p>home works!</p>
 <div class="home-container">
-    <h1>Bem-vindo à página inicial!</h1>
-    <p>Login realizado com sucesso 🚀</p>
+  <div class="welcome-box">
+    <h2>Bem-vindo, {{ username }}!</h2>
+    <p>Você acessou o sistema com sucesso.</p>
+
+    <div class="buttons">
+      <button routerLink="/dashboard" class="dashboard-btn">Ir para o Dashboard</button>
+      <button (click)="logout()" class="logout-btn">Sair</button>
+    </div>
   </div>
-  
+</div>
