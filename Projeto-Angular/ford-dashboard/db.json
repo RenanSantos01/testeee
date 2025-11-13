@@ -2,30 +2,58 @@
   "users": [
     { "id": 1, "username": "admin", "password": "1234" }
   ],
+
   "vehicle": [
-    { "id": 1, "model": "Ranger", "code": "2FRHDUYS2Y63NHD22454", "image": "ranger.png" },
-    { "id": 2, "model": "Mustang", "code": "5YTHD9EJ3H9D22345", "image": "mustang.png" }
+    {
+      "id": 1,
+      "model": "Ford Mustang",
+      "code": "2FRHDUYS2Y63NHD22454",
+      "image": "mustang.png"
+    },
+    {
+      "id": 2,
+      "model": "Ford Ranger",
+      "code": "1FTBR1C87LKA12345",
+      "image": "ranger.png"
+    },
+    {
+      "id": 3,
+      "model": "Ford EcoSport",
+      "code": "3FA6P0H74JR123456",
+      "image": "ecosport.png"
+    }
   ],
+
   "vehicleData": [
     {
       "code": "2FRHDUYS2Y63NHD22454",
-      "totalSales": 15720,
-      "connected": 13400,
-      "softwareUpdated": 12000,
-      "model": "Ranger",
-      "year": 2024,
-      "price": 245000,
-      "status": "Ativo"
+      "model": "Ford Mustang",
+      "year": 2022,
+      "price": 350000,
+      "status": "Ativo",
+      "totalSales": 1250,
+      "connected": 980,
+      "softwareUpdated": 920
     },
     {
-      "code": "5YTHD9EJ3H9D22345",
-      "totalSales": 9200,
-      "connected": 8500,
-      "softwareUpdated": 7700,
-      "model": "Mustang",
+      "code": "1FTBR1C87LKA12345",
+      "model": "Ford Ranger",
       "year": 2023,
-      "price": 485000,
-      "status": "Ativo"
+      "price": 280000,
+      "status": "Ativo",
+      "totalSales": 1750,
+      "connected": 1400,
+      "softwareUpdated": 1300
+    },
+    {
+      "code": "3FA6P0H74JR123456",
+      "model": "Ford EcoSport",
+      "year": 2021,
+      "price": 160000,
+      "status": "Inativo",
+      "totalSales": 950,
+      "connected": 700,
+      "softwareUpdated": 650
     }
   ]
 }

@@ -1,33 +1,68 @@
-<div class="dashboard-page">
-  <!-- Título do dashboard -->
-  <h2>Dashboard de Veículos</h2>
+<div class="dashboard-container">
+  <!-- 🔹 Título -->
+  <h1 class="title">Dashboard Ford</h1>
 
-  <!-- Área de busca -->
-  <div class="search-section">
-    <label for="searchModel">Buscar modelo:</label>
-    <input
-      id="searchModel"
-      type="text"
-      [(ngModel)]="searchModel"
-      placeholder="Digite o modelo do veículo"
+  <!-- 🔹 Seletor de modelos -->
+  <div class="search-box">
+    <select [(ngModel)]="searchModel" (change)="selectVehicle({ model: searchModel })">
+      <option value="" disabled selected>Selecione um modelo...</option>
+      <option *ngFor="let vehicle of vehicles" [value]="vehicle.model">
+        {{ vehicle.model }}
+      </option>
+    </select>
+  </div>
+
+  <!-- 🔹 Cards de estatísticas -->
+  <div class="cards" *ngIf="vehicleData">
+    <div class="card">
+      <h3>Total de Vendas</h3>
+      <p>{{ vehicleData.totalSales }}</p>
+    </div>
+
+    <div class="card">
+      <h3>Veículos Conectados</h3>
+      <p>{{ vehicleData.connected }}</p>
+    </div>
+
+    <div class="card">
+      <h3>Software Atualizado</h3>
+      <p>{{ vehicleData.softwareUpdated }}</p>
+    </div>
+  </div>
+
+  <!-- 🔹 Imagem do veículo -->
+  <div class="vehicle-section" *ngIf="selectedVehicle">
+    <img
+      [src]="'assets/' + selectedVehicle.image"
+      [alt]="selectedVehicle.model"
+      class="vehicle-image"
     />
-    <button class="dashboard-btn" (click)="selectVehicle({ model: searchModel })">
-      Buscar
-    </button>
   </div>
 
-  <!-- Exibição dos dados do veículo selecionado -->
-  <div *ngIf="selectedVehicle" class="vehicle-info">
-    <h3>Veículo encontrado:</h3>
-    <p><strong>Modelo:</strong> {{ selectedVehicle.model }}</p>
-    <p><strong>Código:</strong> {{ selectedVehicle.code }}</p>
-  </div>
+  <!-- 🔹 Tabela com dados -->
+  <div class="table-section" *ngIf="vehicleData">
+    <h2>Detalhes do Veículo</h2>
 
-  <div *ngIf="vehicleData" class="vehicle-data">
-    <h3>Dados detalhados:</h3>
-    <p><strong>Ano:</strong> {{ vehicleData.year }}</p>
-    <p><strong>Cor:</strong> {{ vehicleData.color }}</p>
-    <p><strong>Status:</strong> {{ vehicleData.status }}</p>
-    <!-- Adicione mais campos conforme necessário -->
+    <table>
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Modelo</th>
+          <th>Ano</th>
+          <th>Preço</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>{{ vehicleData.code }}</td>
+          <td>{{ vehicleData.model }}</td>
+          <td>{{ vehicleData.year }}</td>
+          <td>R$ {{ vehicleData.price | number:'1.0-0' }}</td>
+          <td>{{ vehicleData.status }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
